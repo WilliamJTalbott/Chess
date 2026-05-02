@@ -10,4 +10,14 @@ class King < ChessPieces
 
     super(is_white, position, symbol)
   end
+
+  def valid_move?(from, to, board)
+    dx = (to[0] - from[0]).abs
+    dy = (to[1] - from[1]).abs
+
+    return false if dx > 1 || dy > 1
+
+    true
+  end
+
 end
