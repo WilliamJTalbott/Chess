@@ -61,7 +61,10 @@ class Board
 
   end
 
-  def pretty_print(cursor_cords, cursor_symbol)
+  def pretty_print(is_white, cursor_cords, cursor_symbol, illegal_move = nil)
+    puts
+    puts "\e[1m#{is_white ? "Whites" : "Blacks" } turn.\e[0m"
+    puts "\e[31mIllegal move! (#{illegal_move})\e[0m" if !illegal_move.nil?
     puts
     puts "  ----------------- "
     @board.each_with_index do |row, row_index|
@@ -81,6 +84,8 @@ class Board
     puts "  ----------------- "
     puts "   a b c d e f g h"
     puts
+    puts "'Enter' -> select piece"
+    puts "'Esc' -> cancel move"
   end
 
   def piece_symbol(piece)

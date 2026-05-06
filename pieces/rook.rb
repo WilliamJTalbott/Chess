@@ -1,8 +1,8 @@
-require_relative '../chess-pieces.rb'
+require_relative '../piece.rb'
 
-class Rook < ChessPieces
+class Rook < Piece
   def initialize(is_white, position)
-    symbol = (is_white ? "♖"  : "♜")
+    symbol = (is_white ? "♜"  : "♖")
 
     @move_offsets = STRAIGHTS
     @move_count = 7

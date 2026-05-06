@@ -1,6 +1,6 @@
-require_relative '../chess-pieces.rb'
+require_relative '../piece.rb'
 
-class Pawn < ChessPieces
+class Pawn < Piece
   attr_reader :move_offsets, :capture_offsets, :move_count
   attr_accessor :has_moved
 
@@ -12,7 +12,7 @@ class Pawn < ChessPieces
 
     @has_moved = false
 
-    symbol = is_white ? "♙" : "♟"
+    symbol = is_white ? "♟" : "♙"
 
     super(is_white, position, symbol)
   end

@@ -1,9 +1,9 @@
-require_relative '../chess-pieces.rb'
+require_relative '../piece.rb'
 
-class Bishop < ChessPieces
+class Bishop < Piece
   def initialize(is_white, position)
 
-    symbol = (is_white ? "♗"  : "♝")
+    symbol = (is_white ? "♝"  : "♗")
 
     @move_offsets = DIAGONALS
     @move_count = 7

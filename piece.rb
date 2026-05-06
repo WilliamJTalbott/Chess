@@ -1,4 +1,4 @@
-class ChessPieces
+class Piece
 
   STRAIGHTS = [[-1,0], [1,0], [0,-1], [0,1]]
   DIAGONALS = [[-1,-1], [-1,1], [1,-1], [1,1]]
@@ -11,10 +11,6 @@ class ChessPieces
     @is_white = is_white
     @position = position
     @symbol = symbol
-  end
-
-  def can_jump?
-    false
   end
 
 end

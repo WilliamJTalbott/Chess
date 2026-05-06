@@ -10,6 +10,7 @@ class Game
     @players = [Player.new(true), Player.new(false)]
     @tile = [0,0]
     @piece = nil
+    @illegal_move = nil
   end
   
   def play_game()
@@ -28,6 +29,9 @@ class Game
   end
 
   def get_input(player)
+
+    @illegal_move = nil
+
     moves = {
       "w" => [-1, 0],
       "s" => [1, 0],
@@ -38,11 +42,11 @@ class Game
     loop do
       system("clear")
       
-      @board.pretty_print(@tile, @piece&.symbol)
+      @board.pretty_print(player.is_white, @tile, @piece&.symbol, @illegal_move)
 
       input = STDIN.getch
 
-      if input == "q"
+      if input == "\e"
         @piece = nil
         next
       end
@@ -123,6 +127,10 @@ class Game
     @board.set_pos(from, piece)
     @board.set_pos(to, captured_piece)
     piece.position = old_position
+
+    if in_check
+      @illegal_move = "Puts own King in Check"
+    end
 
     in_check
   end
